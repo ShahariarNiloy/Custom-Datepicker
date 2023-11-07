@@ -1,0 +1,10 @@
+.calendar-week-day {
+  text-align: center;
+  vertical-align: middle;
+  text-transform: capitalize;
+  height: 18px;
+  font-size: 10px;
+  line-height: 1px;
+  user-select: none;
+  color: inherit;
+}

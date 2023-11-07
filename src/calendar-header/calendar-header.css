@@ -1,0 +1,51 @@
+.calendar-header {
+  font-family: inherit;
+  line-height: 1;
+  font-size: 14px;
+  color: inherit;
+  display: flex;
+  height: 24px;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+  padding-left: 8px;
+}
+
+.calendar-header-year {
+  color: #B0BEC5;
+}
+
+.calendar-header-switcher {
+  display: flex;
+}
+
+.calendar-header-button {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  background-position: center;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url("./icon-arrow-right.svg");
+  transition: transform 0.1s ease-out;
+}
+
+.calendar-header-button[data-mode="prev"] {
+  transform: rotate(180deg);
+}
+
+.calendar-header-button:active {
+  transform: scale(0.9);
+}
+
+.calendar-header-button[data-mode="prev"]:active {
+  transform: rotate(180deg) scale(0.9);
+}

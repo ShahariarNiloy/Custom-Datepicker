@@ -1,0 +1,16 @@
+.calendar {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #263238;
+}
+
+.calendar-table {
+  table-layout: fixed;
+  border: 0;
+  border-spacing: 0 6px;
+}
+
+.calendar-table-cell {
+  padding: 0;
+}
