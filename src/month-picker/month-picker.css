@@ -1,0 +1,53 @@
+/* month-picker.css */
+
+.month-picker {
+  width: 300px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.month-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.month-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.month-picker-cell {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.month-picker-cell.selected {
+  background-color: #e0e0e0; /* Add your preferred background color for selected month */
+}
+
+select {
+  padding: 8px;
+  font-size: 14px;
+  appearance: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select::after {
+  content: "\25BC";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
