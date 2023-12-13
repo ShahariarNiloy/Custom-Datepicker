@@ -37,7 +37,6 @@
 
 .slider__left-value,
 .slider__right-value {
-  color: #dee2e6;
   font-size: 12px;
   margin-top: 20px;
 }
@@ -78,10 +77,12 @@
   background-color: #f1f5f7;
   border: none;
   border-radius: 50%;
-  box-shadow: 0 0 1px 1px #ced4da;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   cursor: pointer;
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
   margin-top: 4px;
   pointer-events: all;
   position: relative;
@@ -92,7 +93,9 @@
   background-color: #f1f5f7;
   border: none;
   border-radius: 50%;
-  box-shadow: 0 0 1px 1px #ced4da;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   cursor: pointer;
   height: 18px;
   width: 18px;
@@ -118,11 +121,12 @@
 
 .in-range {
   background: #a09fe5;
-  opacity: 0.8; /* Change this to your desired in-range color */
+  opacity: 0.8;
 }
 
 .out-of-range {
-  background: #ced4da; /* Change this to your desired out-of-range color */
+  background: #ced4da;
+  opacity: 0.8; /* Change this to your desired out-of-range color */
 }
 
 .s-1 {
