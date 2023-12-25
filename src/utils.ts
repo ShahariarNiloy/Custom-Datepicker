@@ -1,6 +1,9 @@
-import { Timestamp } from './types';
+import { Timestamp } from "./types";
 
-export const isCurrentMonth = (monthTimestamp: Timestamp, dayTimestamp: Timestamp): boolean => {
+export const isCurrentMonth = (
+  monthTimestamp: Timestamp,
+  dayTimestamp: Timestamp
+): boolean => {
   const monthDate = new Date(monthTimestamp);
   const date = new Date(dayTimestamp);
   return monthDate.getMonth() === date.getMonth();
@@ -21,6 +24,37 @@ export const lastDateOfMonth = (dayTimestamp: Timestamp): number => {
 export const displayDay = (timestamp: Timestamp): string => {
   const date = new Date(timestamp);
   return `0${date.getDate()}`.slice(-2);
+};
+
+export const displayYear = (timestamp: Timestamp): string => {
+  const date = new Date(timestamp);
+  return `${date.getFullYear()}`;
+};
+
+export const displayTenYear = (timestamp: Timestamp): string => {
+  const date = new Date(timestamp);
+  return `${date.getFullYear()} - ${date.getFullYear() + 9}`;
+};
+
+export const displayMonth = (timestamp: Timestamp): string => {
+  const date = new Date(timestamp); // Convert seconds to milliseconds
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const monthIndex = date.getMonth();
+  return monthNames[monthIndex];
 };
 
 export const checkInRange = (target: number, range: number[]): boolean => {

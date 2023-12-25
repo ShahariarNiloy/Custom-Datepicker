@@ -33,6 +33,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   transition: 0.1s linear;
+  color: #000;
 }
 .bottom-sheet.show {
   opacity: 1;

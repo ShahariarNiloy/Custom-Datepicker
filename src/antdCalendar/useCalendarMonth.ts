@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Timestamp } from "./types";
+import { Timestamp } from "../types";
 
 const startOfMonth = (monthTimestamp: Timestamp): Timestamp => {
   const date = new Date(monthTimestamp);

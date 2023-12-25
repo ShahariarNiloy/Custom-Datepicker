@@ -13,14 +13,19 @@
 }
 
 .calendar-header-year {
-  color: #B0BEC5;
+  color: #b0bec5;
+  cursor: pointer;
 }
 
 .calendar-header-switcher {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
-.calendar-header-button {
+.calendar-header-button,
+.calendar-header-button-double {
   display: inline-flex;
   width: 24px;
   height: 24px;
@@ -31,21 +36,34 @@
   line-height: 0;
   cursor: pointer;
   background-position: center;
-  background-size: 16px;
   background-repeat: no-repeat;
   background-color: transparent;
-  background-image: url("./icon-arrow-right.svg");
   transition: transform 0.1s ease-out;
 }
 
-.calendar-header-button[data-mode="prev"] {
+.calendar-header-button {
+  background-size: 16px;
+
+  background-image: url("./icon-arrow-right.svg");
+}
+
+.calendar-header-button-double {
+  background-size: 13px;
+
+  background-image: url("./icon-double-arrow-right.svg");
+}
+
+.calendar-header-button[data-mode="prev"],
+.calendar-header-button-double[data-mode="prev"] {
   transform: rotate(180deg);
 }
 
-.calendar-header-button:active {
+.calendar-header-button:active,
+.calendar-header-button-double:active {
   transform: scale(0.9);
 }
 
-.calendar-header-button[data-mode="prev"]:active {
+.calendar-header-button[data-mode="prev"]:active,
+.calendar-header-button-double[data-mode="prev"]:active {
   transform: rotate(180deg) scale(0.9);
 }

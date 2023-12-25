@@ -1,4 +1,11 @@
-import { FC, memo, PropsWithChildren, useCallback } from "react";
+import {
+  Dispatch,
+  FC,
+  memo,
+  PropsWithChildren,
+  SetStateAction,
+  useCallback,
+} from "react";
 import { Timestamp } from "../types";
 import { lastDateOfMonth } from "../utils";
 import "./calendar-day.css";
@@ -12,6 +19,8 @@ type Props = {
   onPointerEnter?: (dayTimestamp: Timestamp) => void;
   onPointerLeave?: (dayTimestamp: Timestamp) => void;
   onDisable?: (dayTimestamp: Timestamp) => boolean;
+  monthPicker: boolean;
+  setMonthPicker: Dispatch<SetStateAction<boolean>>;
 };
 
 const CalendarDay: FC<PropsWithChildren<Props>> = (props) => {

@@ -1,4 +1,4 @@
-import { Timestamp } from './types';
+import { Timestamp } from "./types";
 
 type CalendarWeek = Timestamp[]; // всегда 7 элементов
 export type Calendar = CalendarWeek[];
@@ -16,13 +16,13 @@ type DateConstructValue = string | Timestamp | Date;
  * 26 27 28 01 02 03 04
  */
 export const makeCalendar = (
-  dateConstructValue: DateConstructValue,
+  dateConstructValue: DateConstructValue
 ): Calendar => {
   const dateIterator = new Date(dateConstructValue);
   const currentYear = dateIterator.getFullYear();
 
   if (Number.isNaN(currentYear)) {
-    throw new TypeError('Invalid Date');
+    throw new TypeError("Invalid Date");
   }
 
   const currentMonth = dateIterator.getMonth();
@@ -34,8 +34,8 @@ export const makeCalendar = (
   const calendar: Calendar = [];
 
   while (
-    currentMonth >= dateIterator.getMonth()
-    || currentYear !== dateIterator.getFullYear()
+    currentMonth >= dateIterator.getMonth() ||
+    currentYear !== dateIterator.getFullYear()
   ) {
     if (currentYear < dateIterator.getFullYear()) {
       return calendar;
@@ -55,4 +55,97 @@ export const makeCalendar = (
   }
 
   return calendar;
+};
+
+export const makeMonthCalendar = (
+  dateConstructValue: DateConstructValue
+): Calendar => {
+  const dateIterator = new Date(dateConstructValue);
+  const currentYear = dateIterator.getFullYear();
+
+  if (Number.isNaN(currentYear)) {
+    throw new TypeError("Invalid Date");
+  }
+
+  const calendar: Timestamp[] = [];
+  dateIterator.setMonth(0);
+
+  for (let i = 0; i < 12; i++) {
+    dateIterator.setMonth(i);
+    dateIterator.setDate(1);
+    dateIterator.setHours(0, 0, 0, 0);
+
+    calendar[i] = dateIterator.getTime() as Timestamp;
+  }
+
+  const monthCalendar = Array.from({ length: 4 }, (_, rowIndex) =>
+    Array.from(
+      { length: 3 },
+      (_, colIndex) => calendar[rowIndex * 3 + colIndex]
+    )
+  );
+
+  return monthCalendar;
+};
+
+export const makeTenYearCalendar = (
+  dateConstructValue: DateConstructValue
+): Calendar => {
+  const dateIterator = new Date(dateConstructValue);
+  const currentYear = dateIterator.getFullYear();
+  const currentMonth = dateIterator.getMonth();
+  const currentDate = dateIterator.getDate();
+
+  if (Number.isNaN(currentYear)) {
+    throw new TypeError("Invalid Date");
+  }
+  const calendar: Timestamp[] = [];
+  const startYear = Math.floor(currentYear / 10) * 10;
+  dateIterator.setMonth(currentMonth);
+  dateIterator.setDate(currentDate);
+
+  for (let i = 0; i < 10; i++) {
+    dateIterator.setFullYear(i + startYear);
+    calendar[i] = dateIterator.getTime() as Timestamp;
+  }
+
+  const monthCalendar = Array.from({ length: 4 }, (_, rowIndex) =>
+    Array.from(
+      { length: 3 },
+      (_, colIndex) => calendar[rowIndex * 3 + colIndex]
+    )
+  );
+
+  return monthCalendar;
+};
+
+export const makeHundredYearCalendar = (
+  dateConstructValue: DateConstructValue
+): Calendar => {
+  const dateIterator = new Date(dateConstructValue);
+  const currentYear = dateIterator.getFullYear();
+  const currentMonth = dateIterator.getMonth();
+  const currentDate = dateIterator.getDate();
+
+  if (Number.isNaN(currentYear)) {
+    throw new TypeError("Invalid Date");
+  }
+  const calendar: Timestamp[] = [];
+  const startYear = Math.floor(currentYear / 100) * 100;
+  dateIterator.setMonth(currentMonth);
+  dateIterator.setDate(currentDate);
+
+  for (let i = 0; i < 10; i++) {
+    dateIterator.setFullYear(i * 10 + startYear);
+    calendar[i] = dateIterator.getTime() as Timestamp;
+  }
+
+  const monthCalendar = Array.from({ length: 4 }, (_, rowIndex) =>
+    Array.from(
+      { length: 3 },
+      (_, colIndex) => calendar[rowIndex * 3 + colIndex]
+    )
+  );
+
+  return monthCalendar;
 };
