@@ -50,7 +50,7 @@
 .calendar-header-button-double {
   background-size: 13px;
 
-  background-image: url("./icon-double-arrow-right.svg");
+  background-image: url("./icon-arrow-right.svg");
 }
 
 .calendar-header-button[data-mode="prev"],
